@@ -8,21 +8,21 @@
 
 ### Project Description:
 
-We will program our application from project 2 to automate a decision to move money between funds based on the desired risk to maintain tolerance while seeking the fund with optimal returns within the risk tolerance. The program will output a decision and a smart contract will use that decision to move money between accounts that represent the funds.
+We will be creating an application to manage a client's investment between Ethereum and a fund represented by the S&P 500 ETF. This application will allow the user to see the risk of the options and the fees associated with a conversion, then to execute a transfer if desired. The application will then transfer the amount beteen the options as selected.
 
 ### Project Objective:
 
-The concept of using smart contracts to maintain a desired risk profile is fascinating. This project could be developed further to become a much more complex and wholistic  application.
+This application assists client portfolio management by calculating transaction fees associated with transferring between Ethereum and a fund before enabling the client to initiate the transfer. The application then automates the transfer of the amount between Etherum and a fund.
 
-### Research Questions:
+### User Stories:
 
-What is the best way to design an application to move money between funds based on a user's desired risk profile?
+As a client, I want to know the fees assoicated with a transfer of my money between different assets before I initiate the transfer.
 
-How will different accounts be used to represent funds and allow for efficient movement of money?
+As a financial manager, I want to save time and money by automating the transfer of my client's money between assets.
 
 ### Datasets:
 
-Datasets will include information on a portfolio of stocks and a market ETF. This will include risk and return data.
+Datasets will include information on Ethereum and the VOO S&P 500 ETF.
 
 ---
 
