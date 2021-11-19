@@ -33,3 +33,7 @@ contract AccountTransfer {
         sourceAcct = acct1
         destAcct = acct2
     }
+
+    // default fallback function enabling reception of funds outside deposit function
+    function() external payable {}
+}
