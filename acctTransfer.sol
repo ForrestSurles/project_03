@@ -1,24 +1,32 @@
-pragma solidity ^0.5.5
+pragma solidity ^0.5.5;
 
 // Define a new contract named `AccountTransfer`
 contract AccountTransfer {
 
-    address payable accountOne;
-    address payable accountTwo;
-    uint128 public contractBalance;
+    address payable ethAcct;
+    address payable mktAcct;
+    uint128 public ethBalance;
+    uint128 public mktBalance;
+    uint128 public fees;        // TODO: Calculation and passing in of the fees
 
     // Define functions: deposit/withdraw/set accounts/fallback
 
-    function withdraw(uint128 amount, address payable sourceAcct) public {
-
-        // Verify authorized account
-        require(sourceAcct == accountOne || sourceAcct == accountTwo, "Unverified account.");
+    function ethToMkt(uint128 amount) public {
 
         // Verify account balance capable of payment
-        require(sourceAcct.balance >= amount, "Insufficient funds.");
+        require(ethAcct.balance >= amount + fees, "Insufficient funds.");
 
-        // Establish balance of the contract (transaction)
-        contractBalance = address(this).balance;
+        // Transfer from the ethereum acct to the market account
+        mktBalance += amount - fees;
+    }
+
+    function mktToEth(uint128 amount) public {
+
+        // Verify account balance capable of payment
+        require(mktAcct.balance >= amount + fees, "Insufficient funds.");
+
+        // Transfer from the ethereum acct to the market account
+        ethBalance += amount - fees;
     }
 
     function deposit() public payable {
