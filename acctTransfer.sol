@@ -3,13 +3,21 @@ pragma solidity ^0.5.5;
 // Define a new contract named `AccountTransfer`
 contract AccountTransfer {
 
+    address payable firmAcct;
     address payable ethAcct;
     address payable mktAcct;
     uint128 public ethBalance;
     uint128 public mktBalance;
     uint128 public fees;        // TODO: Calculation and passing in of the fees
 
-    // Define functions: deposit/withdraw/set accounts/fallback
+    function feeToFirm(uint128 gasFee, uint128 transferFee) public {
+
+        gasFee = 1;             //placeholder value
+        transferFee = 1;        //placeholder value
+        
+        //Transfer transaction fee
+        fees = gasFee + transferFee
+    }
 
     function ethToMkt(uint128 amount) public {
 
