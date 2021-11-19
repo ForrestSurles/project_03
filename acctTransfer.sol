@@ -27,3 +27,9 @@ contract AccountTransfer {
         // Establish balance of the contract (transaction)
         contractBalance = address(this).balance;
     }
+
+    function setAccounts(address payable acct1, address payable acct2) public {
+
+        sourceAcct = acct1
+        destAcct = acct2
+    }
