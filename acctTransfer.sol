@@ -20,3 +20,10 @@ contract AccountTransfer {
         // Establish balance of the contract (transaction)
         contractBalance = address(this).balance;
     }
+
+    function deposit() public payable {
+
+        // TODO: Verify logic of this assignment with both desposit/withdraw functions
+        // Establish balance of the contract (transaction)
+        contractBalance = address(this).balance;
+    }
