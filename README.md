@@ -16,9 +16,9 @@ This application assists client portfolio management by calculating transaction 
 
 ### User Stories:
 
-As a client, I want to know the fees assoicated with a transfer of my money between different assets before I initiate the transfer.
+As a client, I want to know the fees associated with a transfer of my money between different assets before I initiate the transfer.
 
-As a financial manager, I want to save time and money by automating the transfer of my client's money between assets.
+As a financial manager, I want to save time and money by automating the transfer of my client's assets so an employee can utilize their time more effectively.
 
 ### Datasets:
 

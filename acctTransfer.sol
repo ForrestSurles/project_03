@@ -6,50 +6,53 @@ contract AccountTransfer {
     address payable firmAcct;
     address payable ethAcct;
     address payable mktAcct;
-    uint128 public ethBalance;
     uint128 public mktBalance;
+    uint128 public ethBalance;
     uint128 public fees;        // TODO: Calculation and passing in of the fees
+    
+    // Question: How does the program know where to transfer from; how do we code it?
+    // Question: Python Streamlit application to call solidity application. How to call, compile, and deploy solidity file?
 
-    function feeToFirm(uint128 gasFee, uint128 transferFee) public {
-
-        gasFee = 1;             //placeholder value
-        transferFee = 1;        //placeholder value
-        
-        //Transfer transaction fee
-        fees = gasFee + transferFee
-    }
-
-    function ethToMkt(uint128 amount) public {
+    function ethToMkt(uint amount, uint128 gasFee, uint128 transferFee) public {
 
         // Verify account balance capable of payment
         require(ethAcct.balance >= amount + fees, "Insufficient funds.");
+        
+        //Transfer transaction fee
+        gasFee = 133;             //133 GWEI
+        transferFee = 11000000;        //0.011 ETH = 11000000 GWEI
+        fees = gasFee + transferFee;
+        
+        // Call the `transfer` function of the `ethAcct` and pass it the `transferAmount` to transfer as an argument.
+        transferAmount = amount - fees;
+        mktAcct.transfer(transferAmount);
+        
+        // Call the `transfer` function of the `firmAcct` and pass it the `fees` to transfer as an argument.
+        firmAcct.transfer(fees);
 
         // Transfer from the ethereum acct to the market account
-        mktBalance += amount - fees;
+        mktBalance = mktAcct.balance;
+        
     }
 
-    function mktToEth(uint128 amount) public {
+    function mktToEth(uint amount, uint128 gasFee, uint128 transferFee) public {
 
         // Verify account balance capable of payment
         require(mktAcct.balance >= amount + fees, "Insufficient funds.");
+        
+        //Transfer transaction fee
+        gasFee = 133;             //133 GWEI
+        transferFee = 11000000;        //0.011 ETH = 11000000 GWEI
+        fees = gasFee + transferFee;
+        
+        // Call the `transfer` function of the `ethAcct` and pass it the `transferAmount` to transfer as an argument.
+        transferAmount = amount - fees;
+        ethAcct.transfer(transferAmount);
+        
+        // Call the `transfer` function of the `firmAcct` and pass it the `fees` to transfer as an argument.
+        firmAcct.transfer(fees);
 
         // Transfer from the ethereum acct to the market account
-        ethBalance += amount - fees;
+        ethBalance = ethAcct.balance;
+        
     }
-
-    function deposit() public payable {
-
-        // TODO: Verify logic of this assignment with both desposit/withdraw functions
-        // Establish balance of the contract (transaction)
-        contractBalance = address(this).balance;
-    }
-
-    function setAccounts(address payable acct1, address payable acct2) public {
-
-        sourceAcct = acct1
-        destAcct = acct2
-    }
-
-    // default fallback function enabling reception of funds outside deposit function
-    function() external payable {}
-}
