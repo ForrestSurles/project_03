@@ -60,7 +60,7 @@ Email: johnpweldon01@gmail.com
 
 Ashley Guidot
 
-Email:
+Email: ashleyguidot@gmail.com
 
 Forrest Surles
 
