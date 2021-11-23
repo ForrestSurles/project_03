@@ -28,10 +28,10 @@ contract AccountTransfer {
     function ethToMkt(uint amount) public {
 
         //Calculate totalRequired
-        totalRequired = amount + fees
+        totalRequired = amount + fees;
 
         // Verify account balance capable of payment
-        require(ethBalance >= totalRequired, "Insufficient funds.");
+        require(ethBalance >= totalRequired, "Insufficient funds!");
         
         // Call the `transfer` function of the `mktAcct` and pass it the `amount` to transfer as an argument.
         mktAcct.transfer(amount);
@@ -51,13 +51,13 @@ contract AccountTransfer {
 
     }
 
-    mktToEth(uint amount) public {
+    function mktToEth(uint amount) public {
 
         //Calculate totalRequired
-        totalRequired = amount + fees
+        totalRequired = amount + fees;
 
         // Verify account balance capable of payment
-        require(mktBalance >= totalRequired, "Insufficient funds.");
+        require(mktBalance >= totalRequired, "Insufficient funds!");
         
         // Call the `deposit` function of the `mktAcct` and pass it the `amount` to transfer to the 'ethAcct' as an argument.
         mktAcct.deposit(amount);
@@ -72,3 +72,4 @@ contract AccountTransfer {
         ethBalance = address(this).balance;
         
     }
+}
