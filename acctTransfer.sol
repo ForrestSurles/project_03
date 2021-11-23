@@ -60,7 +60,7 @@ contract AccountTransfer {
         require(mktBalance >= totalRequired, "Insufficient funds.");
         
         // Call the `transfer` function of the `ethAcct` and pass it the `amount` to transfer as an argument.
-        weth.deposit{value: amount}();
+        mktAcct.deposit(amount);
         
         // Call the `transfer` function of the `firmAcct` and pass it the `fees` to transfer as an argument.
         firmAcct.transfer(fees);
