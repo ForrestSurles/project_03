@@ -46,8 +46,12 @@ contract AccountTransfer {
         ethBalance = address(this).balance;
         
     }
+    
+    function deposit() public payable {
 
-    function mktToEth(uint amount) public {
+    }
+
+    mktToEth(uint amount) public {
 
         //Calculate totalRequired
         totalRequired = amount + fees
@@ -56,8 +60,7 @@ contract AccountTransfer {
         require(mktBalance >= totalRequired, "Insufficient funds.");
         
         // Call the `transfer` function of the `ethAcct` and pass it the `amount` to transfer as an argument.
-        //TODO: ethAcct = address(this)
-        //TODO: ethAcct.transfer(totalRequired); //Pull money from mktBalance. Check whether the Deposit function can be used here.
+        weth.deposit{value: amount}();
         
         // Call the `transfer` function of the `firmAcct` and pass it the `fees` to transfer as an argument.
         firmAcct.transfer(fees);
