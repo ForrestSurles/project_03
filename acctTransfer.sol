@@ -9,7 +9,7 @@ contract AccountTransfer {
     uint public ethBalance;
     uint public mktBalance;
     uint public transferAmount;
-    uint public gasFee = 133; //133 GWEI
+    uint public gasFee = 21000; //21000 GWEI
     uint public conversionFee = 11000000; //0.011 ETH = 11000000 GWEI
     uint public fees = gasFee + conversionFee;
 
