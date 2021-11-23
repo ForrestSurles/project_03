@@ -48,7 +48,7 @@ contract AccountTransfer {
         
     }
 
-    function mktToEth () public {
+    function mktToEth () private {
         
         // Call the `transfer` function of the `firmAcct` and pass it the `fees` to transfer as an argument.
         firmAcct.transfer(fees);
@@ -65,6 +65,9 @@ contract AccountTransfer {
         
         //Call mktToEth function
         mktToEth();
+        
+        //Calculate transferAmount
+        transferAmount = amount - fees;
         
         // Call the `mktBalance` variable and set it equal to the balance of the `mktAcct.balance`
         mktBalance = mktAcct.balance;
