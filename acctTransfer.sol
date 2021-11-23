@@ -21,8 +21,8 @@ contract AccountTransfer {
     function setAccounts() public{
 
         // Set the values of `mktAcct` and `firmAcct`
-        //TODO: mktAcct = wallet address; //input wallet address
-        //TODO: firmAcct = wallet address; //input wallet address
+        mktAcct = account1;
+        firmAcct = account2;
     }
 
     function ethToMkt(uint amount) public {
