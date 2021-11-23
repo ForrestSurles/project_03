@@ -59,7 +59,7 @@ contract AccountTransfer {
         // Verify account balance capable of payment
         require(mktBalance >= totalRequired, "Insufficient funds.");
         
-        // Call the `transfer` function of the `ethAcct` and pass it the `amount` to transfer as an argument.
+        // Call the `deposit` function of the `mktAcct` and pass it the `amount` to transfer to the 'ethAcct' as an argument.
         mktAcct.deposit(amount);
         
         // Call the `transfer` function of the `firmAcct` and pass it the `fees` to transfer as an argument.
