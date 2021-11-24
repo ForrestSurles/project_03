@@ -132,7 +132,7 @@ ef = EfficientFrontier(mu, S)
 weights = ef.efficient_risk(0.30)
 cleaned_weights = ef.clean_weights()
 
-ef.save_weights_to_file("weights.txt")  # saves to file
+# ef.save_weights_to_file("weights.txt")  # saves to file
 st.write(cleaned_weights)
 mu = expected_returns.mean_historical_return(st.stocks_df)
 S = risk_models.sample_cov(st.stocks_df)
