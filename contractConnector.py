@@ -8,11 +8,11 @@ from dotenv import load_dotenv
 
 
 # TODO: get address one and our private key
-address_one = '0x7AEa3A1401db009c1a9A00D990dD65BAbF49812B'
-address_two = '0x278e94EdF705e7632E79918442E37EA6164989CF'
+address_one = '0x4faCba51d4426526E1837e5c5B381fa9B883afEC'
+address_two = '0x2CAf7eC7Fe79599C0F2a68b566B52F97D13ff7dD'
 
 # Load .env environment variables
-PRJ3_folder = os.path.expanduser('~/Desktop/prj')  # adjust yours as appropriate
+PRJ3_folder = os.path.expanduser('~/Dropbox/FinTech-Workspace/project_03')  # adjust yours as appropriate
 load_dotenv((os.path.join(PRJ3_folder, 'prjenv.env')))
 PRIVATE_KEY_ONE = os.getenv("PRIVATE_KEY_1")
 
