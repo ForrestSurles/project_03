@@ -11,8 +11,10 @@ import streamlit as st
 # build streamlit interface
 side_click = st.sidebar.write("Contributors: John P Weldon, Ashley Guidot, Forrest Surles, Vishwanath Subramanian")
 
+#image url for streamlit app
 st.image('https://image.cnbcfm.com/api/v1/image/106962967-1634709558798-gettyimages-1235570383-porzycki-cryptocu210928_npbUe.jpeg?v=1635185551', width=350)
 
+#streamlit app title and description
 st.markdown("### Smart Risk Movements")
 st.markdown("This application assists client portfolio management by calculating transaction fees associated with transferring between Ethereum and a fund before enabling the client to initiate the transfer. The application then automates the transfer of the amount between Etherum and a fund.")
 
@@ -71,6 +73,7 @@ address_two = '0x2CAf7eC7Fe79599C0F2a68b566B52F97D13ff7dD'
 # address two private key
 PRIVATE_KEY_TWO = os.getenv("PRIVATE_KEY_2")
 
+# if user agrees to fees and executes proceed to further if else statement
 if fee_agreement == 'Yes' and st.button('Execute'):
 
         # Getting nonce
@@ -107,6 +110,6 @@ if fee_agreement == 'Yes' and st.button('Execute'):
         tx = w3.eth.sendRawTransaction(signed.rawTransaction)    
         tx_receipt = w3.eth.waitForTransactionReceipt(tx)
 
-        # TODO: I need to change the name to our contract name
+        # Complete transaction
         our_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
         st.write('Transaction Complete.')
