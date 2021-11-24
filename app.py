@@ -23,7 +23,7 @@ sidebar_msg += f"- Vishwanath Subramanian"
 st.sidebar.write(sidebar_msg)
 
 st.image('./cover_image.jpeg', width=700)
-st.markdown("### Smart Risk Movements")
+st.markdown("### Smart Movements")
 
 desc_msg = f'This application assists client portfolio management by '
 desc_msg += f'calculating transaction fees associated with transferring '
@@ -68,7 +68,7 @@ load_dotenv()
 PRIVATE_KEY_FIRM = os.getenv("PRIVATE_KEY_FIRM")
 
 # provide firm wallet address to receive transaction fee
-address_firm = '0xb1fB7f3c3D78DcB6B68D07ade463ca3Cd63fB373'
+address_firm = os.getenv("FIRM_ADDRESS")
 
 # smart contract bytecode/abi for local execution
 bytecode = json.load(open('bytecode.json'))['object']
@@ -86,7 +86,7 @@ w3.eth.setGasPriceStrategy(strategy)
 deployed_contract = w3.eth.contract(abi=abi, bytecode=bytecode)
 
 
-# if user agrees to fees and executes proceed to further if else statement
+# fees are agreed to, and button is clicked
 if fee_agreement == 'Yes' and st.button('Execute'):
 
         # gas price ceiling for transaction (in wei)
@@ -133,7 +133,10 @@ if fee_agreement == 'Yes' and st.button('Execute'):
         tx_receipt = w3.eth.waitForTransactionReceipt(tx)
 
         # update contract with new balance 
-        deployed_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+        deployed_contract = w3.eth.contract(
+                address=tx_receipt.contractAddress,
+                abi=abi
+        )
 
         # declare completion
         st.write('Transaction Complete.')
