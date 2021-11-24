@@ -3,26 +3,41 @@ import json
 import pandas as pd
 import streamlit as st
 
-from dotenv import load_dotenv
 from decimal import Decimal
+from dotenv import load_dotenv
 from web3 import Web3, middleware
 from web3.gas_strategies.time_based import *
 from web3.exceptions import ContractLogicError
 from web3.middleware import geth_poa_middleware
 
-# build streamlit interface
-side_click = st.sidebar.write("Contributors: John P Weldon, Ashley Guidot, Forrest Surles, Vishwanath Subramanian")
+# ======================================================================
+# STREAMLIT INTERFACE
+# ======================================================================
 
-#image url for streamlit app
-st.image('https://image.cnbcfm.com/api/v1/image/106962967-1634709558798-gettyimages-1235570383-porzycki-cryptocu210928_npbUe.jpeg?v=1635185551', width=350)
+# list of contributors
+side_msg = f"Contributors:\n\n"
+side_msg += f"- John P Weldon\n"
+side_msg += f"- Ashley Guidot\n"
+side_msg += f"- Forrest Surles\n"
+side_msg += f"- Vishwanath Subramanian"
 
-#streamlit app title and description
+# sidebar w/ contributors
+side_click = st.sidebar.write(side_msg)
+
+# image url 
+st.image('./cover_image.jpeg', width=700)
+
+# app title 
 st.markdown("### Smart Risk Movements")
+
+# app description
 st.markdown("This application assists client portfolio management by calculating transaction fees associated with transferring between Ethereum and a fund before enabling the client to initiate the transfer. The application then automates the transfer of the amount between Etherum and a fund.")
 
-# Load .env environment variables
-PRJ3_folder = os.path.expanduser('~/Dropbox/FinTech-Workspace/project_03')  # adjust yours as appropriate
-load_dotenv((os.path.join(PRJ3_folder, 'prjenv.env')))
+# ======================================================================
+
+# Load environment variables
+load_dotenv()
+
 PRIVATE_KEY_ONE = os.getenv("PRIVATE_KEY_1")
 
 # Copy bytecode from Remix to utilize smart contract locally
