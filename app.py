@@ -7,6 +7,7 @@ import json
 from dotenv import load_dotenv
 import pandas as pd
 import streamlit as st
+from decimal import Decimal
 
 # build streamlit interface
 side_click = st.sidebar.write("Contributors: John P Weldon, Ashley Guidot, Forrest Surles, Vishwanath Subramanian")
@@ -39,7 +40,7 @@ st.write(address_one)
 priv_key_input = st.text_input("Enter your Private Key:", type="password")
 
 # amount to transfer 
-amount_transfer = int(st.number_input("How much would you like to transfer?:"))
+amount_transfer = Web3.toWei(Decimal(st.number_input("How much would you like to transfer?:")), 'ether')
 
 # options for transaction
 options = st.selectbox("Which account would you like to transfer from?",
