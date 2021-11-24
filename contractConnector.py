@@ -17,7 +17,7 @@ load_dotenv((os.path.join(PRJ3_folder, 'prjenv.env')))
 PRIVATE_KEY_ONE = os.getenv("PRIVATE_KEY_1")
 
 # Copy bytecode from Remix
-bytecode = json.load(open('bytecode.json')['object'])
+bytecode = json.load(open('bytecode.json'))['object']
 # Copy abi from Remix
 abi = json.load(open('abi.json'))
 
