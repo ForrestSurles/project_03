@@ -35,7 +35,12 @@ This project leverages python 3.7, Solidity, Streamlit, and Ganache.
 Before running the application first install the following dependencies:
 
 ```python
+  pip install web3
+  pip install python-dotenv
   pip install mkdocs
+  pip install pandas
+  pip install DateTime
+  conda install numpy
 ```
 
 ---
