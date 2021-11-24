@@ -75,7 +75,7 @@ if fee_agreement == 'Yes' and st.button('Execute'):
 
         # Getting nonce
         # Using toHex for easier visability when deployed
-        gasPrice = 21000 #gwei
+        gasPrice = 55000 #gwei
 
         if options == "Market Account":
 
