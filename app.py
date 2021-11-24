@@ -14,23 +14,16 @@ from web3.middleware import geth_poa_middleware
 # STREAMLIT INTERFACE
 # ======================================================================
 
-# list of contributors
-side_msg = f"Contributors:\n\n"
-side_msg += f"- John P Weldon\n"
-side_msg += f"- Ashley Guidot\n"
-side_msg += f"- Forrest Surles\n"
-side_msg += f"- Vishwanath Subramanian"
+# contributors
+sidebar_msg = f"Contributors:\n\n"
+sidebar_msg += f"- John P Weldon\n"
+sidebar_msg += f"- Ashley Guidot\n"
+sidebar_msg += f"- Forrest Surles\n"
+sidebar_msg += f"- Vishwanath Subramanian"
 
-# sidebar w/ contributors
-side_click = st.sidebar.write(side_msg)
-
-# image url 
+st.sidebar.write(sidebar_msg)
 st.image('./cover_image.jpeg', width=700)
-
-# app title 
 st.markdown("### Smart Risk Movements")
-
-# app description
 st.markdown("This application assists client portfolio management by calculating transaction fees associated with transferring between Ethereum and a fund before enabling the client to initiate the transfer. The application then automates the transfer of the amount between Etherum and a fund.")
 
 # ======================================================================
