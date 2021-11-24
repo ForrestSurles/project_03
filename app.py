@@ -36,9 +36,12 @@ st.write(address_one)
 # private key
 priv_key_input = st.text_input("Enter your Private Key:", type="password")
 
+# amount to transfer 
+amount_transfer= st.text_input("How much would you like to transfer?:")
+
 # options for transaction
 options = st.selectbox("Which account would you like to transfer from?",
-        ["Market Account", "Eth Account"])
+        ["Market Account", "Ethereum Account"])
 
 # give notice of transaction fees
 st.markdown("The fee associated with this transaction is 21,000 GWEI.")
