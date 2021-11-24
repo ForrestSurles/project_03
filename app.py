@@ -44,7 +44,7 @@ options = st.selectbox("Which account would you like to transfer from?",
         ["Market Account", "Ethereum Account"])
 
 # give notice of transaction fees
-st.markdown("The fee associated with this transaction is 21,000 GWEI.")
+st.markdown("The fee associated with this transaction is 55,000 GWEI.")
 
 # clarify intent from user
 fee_agreement = st.selectbox("Would you like to proceed with transaction?",
