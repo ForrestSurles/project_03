@@ -83,7 +83,7 @@ if fee_agreement == 'Yes' and st.button('Execute'):
 
                 tr = {'to': address_two, 
                         'from': address_one,
-                        'value': Web3.toHex(0), 
+                        'value': Web3.toHex(amount_transfer), 
                         'gasPrice': Web3.toHex(gasPrice), 
                         'nonce': nonce,
                         'data': "0x" + bytecode,
@@ -96,7 +96,7 @@ if fee_agreement == 'Yes' and st.button('Execute'):
 
                 tr = {'to': address_one, 
                         'from': address_two,
-                        'value': Web3.toHex(0), 
+                        'value': Web3.toHex(amount_transfer), 
                         'gasPrice': Web3.toHex(gasPrice), 
                         'nonce': nonce,
                         'data': "0x" + bytecode,
