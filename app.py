@@ -26,52 +26,53 @@ st.image('./cover_image.jpeg', width=700)
 st.markdown("### Smart Risk Movements")
 st.markdown("This application assists client portfolio management by calculating transaction fees associated with transferring between Ethereum and a fund before enabling the client to initiate the transfer. The application then automates the transfer of the amount between Etherum and a fund.")
 
+# query acct address / print input verification
+address_one = st.text_input("Market Account Address:")
+st.write(address_one)
+
+# query acct private key for processing
+priv_key = st.text_input("Enter your Private Key:", type="password")
+
+# amount of ether to transfer 
+amount_transfer = Web3.toWei(
+        Decimal(st.number_input("How much would you like to transfer?:")),
+        'ether'
+)
+
+# select acct
+options = st.selectbox(
+        "Which account would you like to transfer from?",
+        ["Market Account", "Ethereum Account"]
+)
+
+# declare transaction fees
+st.markdown("The fee associated with this transaction is 55,000 GWEI.")
+
+# clarify intent from user
+fee_agreement = st.selectbox(
+        "Would you like to proceed with transaction?",
+        ["Yes", "No"]
+)
+
+# ======================================================================
+# PREPARE FOR TRANSACTION
 # ======================================================================
 
 # Load environment variables
 load_dotenv()
-
 PRIVATE_KEY_ONE = os.getenv("PRIVATE_KEY_1")
 
-# Copy bytecode from Remix to utilize smart contract locally
+# smart contract bytecode/abi for local execution
 bytecode = json.load(open('bytecode.json'))['object']
-# Copy abi from Remix
 abi = json.load(open('abi.json'))
-
-
-# query input from user to initiate transaction
-
-# wallet address
-address_one= st.text_input("Enter your Market Account Address:")
-st.write(address_one)
-
-# private key
-priv_key_input = st.text_input("Enter your Private Key:", type="password")
-
-# amount to transfer 
-amount_transfer = Web3.toWei(Decimal(st.number_input("How much would you like to transfer?:")), 'ether')
-
-# options for transaction
-options = st.selectbox("Which account would you like to transfer from?",
-        ["Market Account", "Ethereum Account"])
-
-# give notice of transaction fees
-st.markdown("The fee associated with this transaction is 55,000 GWEI.")
-
-# clarify intent from user
-fee_agreement = st.selectbox("Would you like to proceed with transaction?",
-        ["Yes", "No"])
-
-
-# execute transaction with user input
 
 # connect to blockchain network
 ganache_url = "http://127.0.0.1:7545"
 w3 = Web3(Web3.HTTPProvider(ganache_url))
 
-# web3 function that allows us to set the amount of time we want transactions to take (in secs)
+# set desired transaction time amount (in seconds)
 strategy = construct_time_based_gas_price_strategy(15)
-# Sets the gas price
+# set gas price
 w3.eth.setGasPriceStrategy(strategy)
 
 our_contract = w3.eth.contract(abi=abi, bytecode=bytecode)
@@ -102,7 +103,7 @@ if fee_agreement == 'Yes' and st.button('Execute'):
                         'data': "0x" + bytecode,
                         'gas': 5000000,
                         }
-                signed = w3.eth.account.sign_transaction(tr, priv_key_input)
+                signed = w3.eth.account.sign_transaction(tr, priv_key)
         else:
 
                 nonce = Web3.toHex(w3.eth.getTransactionCount(address_two))
