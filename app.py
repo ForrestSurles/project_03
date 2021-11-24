@@ -37,7 +37,7 @@ st.write(address_one)
 priv_key_input = st.text_input("Enter your Private Key:", type="password")
 
 # amount to transfer 
-amount_transfer= st.text_input("How much would you like to transfer?:")
+amount_transfer = int(st.number_input("How much would you like to transfer?:"))
 
 # options for transaction
 options = st.selectbox("Which account would you like to transfer from?",
@@ -66,7 +66,7 @@ our_contract = w3.eth.contract(abi=abi, bytecode=bytecode)
 
 
 # provide firm wallet address to receive transaction fee
-address_two = '0x2CAf7eC7Fe79599C0F2a68b566B52F97D13ff7dD'
+address_two = '0xb1fB7f3c3D78DcB6B68D07ade463ca3Cd63fB373'
 
 # address two private key
 PRIVATE_KEY_TWO = os.getenv("PRIVATE_KEY_2")
