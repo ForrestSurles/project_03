@@ -12,7 +12,7 @@ We will be creating an application to manage a client's investment between Ether
 
 ### Project Objective:
 
-We will be create an application that utilizes Python and Solidity to execute a transfer between two accounts, one being an Ethereum account and one an account denominated in USD that represents an inivestment fund, via smart contract while allowing the user to have a clean interface with Streamlit.
+We will be create an application that utilizes Python and Solidity to execute a transfer between two accounts, one being an Ethereum account and one an account denominated in USD that represents an investment fund, via smart contract while allowing the user to have a clean interface with Streamlit.
 
 ### User Stories:
 
