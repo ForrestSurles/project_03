@@ -1,13 +1,14 @@
-from web3 import Web3, middleware
-from web3.exceptions import ContractLogicError
-from web3.middleware import geth_poa_middleware
-from web3.gas_strategies.time_based import *
 import os
 import json
-from dotenv import load_dotenv
 import pandas as pd
 import streamlit as st
+
+from dotenv import load_dotenv
 from decimal import Decimal
+from web3 import Web3, middleware
+from web3.gas_strategies.time_based import *
+from web3.exceptions import ContractLogicError
+from web3.middleware import geth_poa_middleware
 
 # build streamlit interface
 side_click = st.sidebar.write("Contributors: John P Weldon, Ashley Guidot, Forrest Surles, Vishwanath Subramanian")
