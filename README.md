@@ -44,7 +44,11 @@ Before running the application first install the following dependencies:
   pip install mkdocs
   pip install pandas
   pip install DateTime
-  conda install numpy
+  pip install matplotlib
+  pip install PyPortfolioOpt
+  pip install numpy
+  pip install scipy
+  pip install pytest-warnings
 ```
 
 ---
